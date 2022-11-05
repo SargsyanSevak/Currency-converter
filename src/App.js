@@ -12,7 +12,6 @@ function App() {
     fetch('https://cdn.cur.su/api/latest.json')
     .then(res => res.json())
     .then((data) => {
-      console.log(data)
      ratesRef.current = data.rates
       onChangeToPrice(1)
     })
