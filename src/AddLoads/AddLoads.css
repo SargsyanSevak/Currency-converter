@@ -1,0 +1,23 @@
+.register{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.register {
+    display: flex;
+	justify-content: space-around;
+	align-items: center;
+    flex-direction: column;
+    height: 60vh;
+}
+.register input {
+    padding:10px 50px ;
+	outline: none;
+	border-radius: 8px;
+    border:1px solid green;
+}
+
+.btn {
+    border:none;
+    margin-top: 10px;
+}

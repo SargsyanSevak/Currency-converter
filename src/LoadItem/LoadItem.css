@@ -1,0 +1,29 @@
+.item-box {
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    border: 1px solid rgb(201, 199, 199);
+    margin: 3px 0px;
+    padding: 10px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+.company {
+    color:rgb(7, 150, 2)
+}
+.price {
+    color:rgb(0, 0, 0);
+    font-weight: bold;
+}
+.email span a {
+    text-decoration: none;
+    color:rgb(156, 1, 1);
+}
+.price,.date,.trucktype,.weight {
+    flex: 1;
+    text-align: center;
+}
+.company, .pickup, .delivery, .tell, .email {
+    flex: 3;
+    text-align: center;
+}

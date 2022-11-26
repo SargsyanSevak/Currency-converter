@@ -1,57 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Block } from './Block';
-import './index.css';
+import {Routes,Route} from 'react-router-dom'
+import LoadBoard from './LoadBoard/LoadBoard';
+import Layout from './Layout/Layout'
+import LoginPage from './LoginPage/LoginPage';
+import RegisterPage from './RegisterPage/RegisterPage';
+import IsLogin from './IsLogin/IsLogin';
 
 function App() {
-  const [fromCurrency,setFromCurrency] = useState('AMD')
-  const [fromPrice,setFromPrice] = useState(0)
-  const [toPrice,setToPrice] = useState(1)
-  const [toCurrency,setToCurrency] = useState('USD')
-  const ratesRef = useRef({})
-  useEffect(()=>{
-    fetch('https://cdn.cur.su/api/latest.json')
-    .then(res => res.json())
-    .then((data) => {
-     ratesRef.current = data.rates
-      onChangeToPrice(1)
-    })
-  },[])
-
-  const onChangeFromPrice = (value)=>{
-    const price = value /  ratesRef.current[fromCurrency];
-    const result = price *  ratesRef.current[toCurrency];
-    setToPrice(result.toFixed(2))
-    setFromPrice(value)
-  }
-  const onChangeToPrice = (value)=>{
-    const result = ( ratesRef.current[fromCurrency] /  ratesRef.current[toCurrency]) * value;
-    setFromPrice(result.toFixed(2))
-    setToPrice(value)
-  }
-
-  useEffect(()=>{
-    onChangeFromPrice(fromPrice)
-  },[fromCurrency])
-
-  useEffect(()=>{
-    onChangeToPrice(toPrice)
-  },[toCurrency])
-
-  return (
-    <div className="App">
-      <Block 
-      value={fromPrice} 
-      currency={fromCurrency} 
-      onChangeCurrency={setFromCurrency}
-      onChangeValue={onChangeFromPrice}/>
-
-      <Block 
-      value={toPrice} 
-      currency={toCurrency} 
-      onChangeCurrency={setToCurrency}
-      onChangeValue={onChangeToPrice}/>
-    </div>
-  );
+return  (
+     <>
+  <Routes>
+    <Route path='/' element={<Layout/>}>
+        <Route index element={<LoginPage/>}/>
+        <Route path="login" element={<LoginPage/>}/>
+        <Route path='register' element={<RegisterPage/>}/>
+        <Route path='loadboard' element={
+          <IsLogin>
+                <LoadBoard/>
+          </IsLogin>
+        }/>
+    </Route>
+  </Routes>
+</>
+  )
 }
 
 export default App;

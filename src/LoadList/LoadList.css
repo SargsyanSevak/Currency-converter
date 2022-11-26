@@ -1,0 +1,4 @@
+.LoadList {
+    display: flex;
+    flex-direction: column;
+}

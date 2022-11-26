@@ -1,0 +1,32 @@
+.profile_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  position: relative;
+}
+.profile-name {
+  color: white;
+  padding: 10px;
+  background:rgb(5, 185, 5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profile-items{
+  position: absolute;
+  color: white;
+  top: 50px;
+  background:rgb(29, 206, 5);
+  padding: 15px;
+  border-radius:10px;
+
+}
+.profile-items ul li{
+  list-style: none;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.show{
+  display: none;
+}
