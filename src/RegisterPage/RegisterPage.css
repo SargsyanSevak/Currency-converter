@@ -27,7 +27,7 @@
   position: relative;
 }
 
-.content form .user-details{
+.register-content form .user-details{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -94,7 +94,7 @@ form .user-details .input-box{
   }
   }
   @media(max-width: 459px){
-  .container .content .category{
+  .container .register-content .category{
     flex-direction: column;
   }
 

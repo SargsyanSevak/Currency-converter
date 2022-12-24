@@ -3,22 +3,23 @@ import "./LoginPage.css"
 import {Link, useNavigate} from 'react-router-dom'
 import RegisterPage from '../RegisterPage/RegisterPage'
 import { useForm } from 'react-hook-form'
-import axios from 'axios';
 import { useState } from 'react'
 import { ContextValue } from '../Context/Context'
+import auth from '../auth'
 
 const LoginPage = () => {
 
     const {setUser} = useContext(ContextValue)
     const [notFound,setNotFound] = useState(false)
+    const {setActiveUser} = useContext(ContextValue)
     const {register,handleSubmit,reset} = useForm({
         mode : "onChange",
       })
-
-      let navigate = useNavigate()
       
+      let navigate = useNavigate()
       function logIn(data){
-        axios.get('http://localhost:3000/users')
+        auth
+        .get("/users")
         .then(res =>{
             return res.data
         })
@@ -29,8 +30,10 @@ const LoginPage = () => {
         }).then(data => {
           if(data.length){
             setNotFound(false)
-            navigate('loadboard')
-            setUser(data[0])
+            navigate('/')
+            localStorage.setItem('logged', true);
+            localStorage.setItem('userName', data[0].username);
+            setActiveUser(data[0])
           }else {
             setNotFound(true)
           }

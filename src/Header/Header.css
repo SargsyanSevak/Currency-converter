@@ -3,8 +3,17 @@
 	justify-content: space-evenly;
 	align-items: center;
 	height: 100px;
-	background-color:black
+	background:linear-gradient(217deg, rgba(1, 66, 15, 0.9), rgba(255,0,0,0) 90.71%),
+	linear-gradient(127deg, rgba(0, 0, 0, 0.9), rgba(0,255,0,0) 90.71%),
+	linear-gradient(336deg, rgba(0, 0, 3, 0.9), rgba(45, 187, 41, 0) 90.71%);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1005;
 }
+
 .Header .searchBox input {
 	padding:5px 5px ;
 	outline: none;
